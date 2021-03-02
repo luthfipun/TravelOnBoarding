@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("splash") var isSplash = 1
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if isSplash == 4 {
+            VStack {
+                Text("Welcome to Home")
+                    .padding()
+                
+                Button(action: {
+                    isSplash = 1
+                }, label: {
+                    Text("Back to SplashScreen")
+                })
+            }
+        }else {
+            SplashView()
+        }
     }
 }
 
